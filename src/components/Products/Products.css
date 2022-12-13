@@ -1,0 +1,14 @@
+.products-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+hr{
+    width:100%;
+    margin:0;
+    color:  #d7dfe9;
+    background-color:  #d7dfe9;
+  }
+

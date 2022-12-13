@@ -1,0 +1,107 @@
+.home-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.border-line{
+    color:#475569;
+}
+.home-content-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:80vh;
+    width:90%;
+}
+.home-description-container{
+    margin-right:10px;
+    text-align:left;
+    margin:0;
+    padding-right:10px;
+}
+.home-description{
+    font-family: 'Roboto';
+    margin-top: 36px;
+    font-size: 14px;
+    line-height: 28px;
+    color: #64748b;
+    margin-bottom: 0px;
+    text-align: left;
+}
+
+.home-heading{
+    color: #1e293b;
+    font-family: 'Roboto';
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 1.2;
+    text-align: left;
+}
+.clothes-image{
+    width:30%;
+    height:350px;
+}
+
+.shop-now-button {
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Roboto';
+    color: #ffffff;
+    border: none;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-radius: 6px;
+    background-color: #0967d2;
+    margin-top: 20px;
+    cursor: pointer;
+    outline: none;
+    width:120px;
+  }
+
+  hr{
+    width:100%;
+    margin:0;
+    color:  #d7dfe9;
+    background-color:  #d7dfe9;
+  }
+
+  .home-mobile-content-container{
+    display: none;
+  }
+
+  @media screen and (max-width:575px){
+    .home-mobile-content-container{
+        display:block;
+    }
+    .home-content-container{
+        display: none;
+    }
+    .home-description-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding:10px;
+    }
+    .home-description{
+        font-family: 'Roboto';
+        margin-top: 36px;
+        font-size: 14px;
+        line-height: 28px;
+        color: #64748b;
+        margin-bottom: 0px;
+        text-align: center;
+    }
+    .home-heading{
+        color: #1e293b;
+        font-family: 'Roboto';
+        font-weight: bold;
+        font-size: 40px;
+        line-height: 1.2;
+        text-align: left;
+    }
+    .clothes-image{
+        width:90%;
+        height:350px;
+    }
+  }
