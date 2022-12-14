@@ -28,7 +28,7 @@ const Cart = () => {
                     "Content-Type":"application/json"
                 }
             }
-            const response = await fetch(`http://localhost:4000/api/cart/get-cart-items/${user.user_id}`,options)
+            const response = await fetch(`https://ecommerce-api-ws77.onrender.com/api/cart/get-cart-items/${user.user_id}`,options)
             const jsonResponse = await response.json()
             if (response.ok) {
                 dispatch({ type: "ADD_ITEMS_TO_CART", payload: [...jsonResponse.userCart] })
@@ -48,7 +48,7 @@ const Cart = () => {
             body: JSON.stringify({ id })
         }
 
-        const response = await fetch(`http://localhost:4000/api/cart/delete-cart-item/${user.user_id}`, options)
+        const response = await fetch(`https://ecommerce-api-ws77.onrender.com/api/cart/delete-cart-item/${user.user_id}`, options)
         if (response.ok) {
             dispatch({ type: "DELETE_FROM_CART", payload: id })
         }
@@ -70,7 +70,7 @@ const Cart = () => {
             body: JSON.stringify({ product_id: id, quantity: 1 })
         }
 
-        const response = await fetch(`http://localhost:4000/api/cart/change-quantity/${user.user_id}`, options)
+        const response = await fetch(`https://ecommerce-api-ws77.onrender.com/api/cart/change-quantity/${user.user_id}`, options)
         // console.log(jsonResponse)
         if (response.ok) {
             dispatch({ type: "ADD_ITEMS_TO_CART", payload: updatedCartList })
@@ -94,7 +94,7 @@ const Cart = () => {
                 body: JSON.stringify({ product_id: id, quantity: -1 })
             }
 
-            const response = await fetch(`http://localhost:4000/api/cart/change-quantity/${user.user_id}`, options)
+            const response = await fetch(`https://ecommerce-api-ws77.onrender.com/api/cart/change-quantity/${user.user_id}`, options)
             // console.log(jsonResponse)
             if (response.ok) {
                 dispatch({ type: "ADD_ITEMS_TO_CART", payload: updatedCartList })
@@ -113,7 +113,7 @@ const Cart = () => {
             }
         }
 
-        const response = await fetch(`http://localhost:4000/api/cart/empty-cart/${user.user_id}`, options)
+        const response = await fetch(`https://ecommerce-api-ws77.onrender.com/api/cart/empty-cart/${user.user_id}`, options)
         if (response.ok) {
             dispatch({ type: "CLEAR_CART", payload: [] })
         }

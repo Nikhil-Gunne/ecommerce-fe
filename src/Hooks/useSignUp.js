@@ -19,7 +19,7 @@ const useSignUp = () =>{
             },
             body:JSON.stringify(user)
         }
-        const response = await fetch("http://localhost:4000/api/user/signup",options)
+        const response = await fetch("https://ecommerce-api-ws77.onrender.com/api/user/signup",options)
         const jsonResponse = await response.json()
         //console.log(response,jsonResponse)
         if(response.ok){

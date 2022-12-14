@@ -34,7 +34,7 @@ const ProductDetails = () =>{
                     "Authorization": `Bearer ${user.token}`
                 }
             }
-            const response =  await fetch(`http://localhost:4000/api/products/${productId}`,options)
+            const response =  await fetch(`https://ecommerce-api-ws77.onrender.com/api/products/${productId}`,options)
             const jsonResponse =  await response.json()
             if (response.ok){
                 setProduct(jsonResponse)
@@ -72,7 +72,7 @@ const ProductDetails = () =>{
                 body:JSON.stringify({product_id:itemObj.product_id,quantity})
             }
 
-            const response =  await fetch(`http://localhost:4000/api/user/change-quantity/${user_id}`,options)
+            const response =  await fetch(`https://ecommerce-api-ws77.onrender.com/api/user/change-quantity/${user_id}`,options)
             // console.log(jsonResponse)
             if(response.ok){
                 dispatch({type:"ADD_ITEMS_TO_CART",payload:updatedCartList})
@@ -89,7 +89,7 @@ const ProductDetails = () =>{
                 body:JSON.stringify(itemObj)
             }
     
-            const response = await fetch("http://localhost:4000/api/user/add-to-cart",options)
+            const response = await fetch("https://ecommerce-api-ws77.onrender.com/api/user/add-to-cart",options)
             const jsonResponse = await response.json()
             console.log(jsonResponse)
             setQuantity(1)

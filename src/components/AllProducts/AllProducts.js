@@ -56,7 +56,7 @@ const AllProducts = () =>{
                     "Authorization": `Bearer ${user.token}`
                 }
             }
-            const response = await fetch(`http://localhost:4000/api/products?sort_by=${activeSortByOption}&category=${activeCategory}&rating=${activeRating}&search_q=${searchInput}`,options)
+            const response = await fetch(`https://ecommerce-api-ws77.onrender.com/api/products?sort_by=${activeSortByOption}&category=${activeCategory}&rating=${activeRating}&search_q=${searchInput}`,options)
             const jsonResponse = await response.json()
             if(response.ok){
                 setProductsList([...jsonResponse])
