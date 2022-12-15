@@ -21,6 +21,9 @@ const AllProducts = () =>{
     
     const user = JSON.parse(localStorage.getItem("user"))
 
+    const URL ="https://ecommerce-api-ws77.onrender.com"
+    //"http://localhost:4000"
+
     const handleSortBy = (opt) =>{
         setActiveSortByOption(opt)
         setLoading(true)
@@ -56,7 +59,7 @@ const AllProducts = () =>{
                     "Authorization": `Bearer ${user.token}`
                 }
             }
-            const response = await fetch(`https://ecommerce-api-ws77.onrender.com/api/products?sort_by=${activeSortByOption}&category=${activeCategory}&rating=${activeRating}&search_q=${searchInput}`,options)
+            const response = await fetch(`${URL}/api/products?sort_by=${activeSortByOption}&category=${activeCategory}&rating=${activeRating}&search_q=${searchInput}`,options)
             const jsonResponse = await response.json()
             if(response.ok){
                 setProductsList([...jsonResponse])

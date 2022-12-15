@@ -2,6 +2,7 @@ import { useState } from "react"
 import useSignUp from "../../Hooks/useSignUp"
 import "./SignUp.css"
 
+
 function SignUp(){
     const [email,setEmail] = useState("")
 
@@ -9,7 +10,7 @@ function SignUp(){
 
     const [showPassword,setShowPassword] = useState(false)
 
-    const {signup,errorMessage="",emptyFields=[]} =useSignUp()
+    const {signup,emptyFields=[]} =useSignUp()
 
 
 
@@ -27,6 +28,8 @@ function SignUp(){
         event.preventDefault()
         // console.log(email,password)
         await signup(email,password) 
+        setEmail("")
+        setPassowrd("")
     }
 
     const handleShowPassword = () =>{
@@ -47,7 +50,6 @@ function SignUp(){
                     <label className="show-password-text" htmlFor="checkbox">show password</label>
                 </div>
                 <button className="signup-button" type="submit">signup</button>
-                {errorMessage.length>0&&<p className="error-message">{errorMessage}</p>}
             </form>
         </div>
     </div>

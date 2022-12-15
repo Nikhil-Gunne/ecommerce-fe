@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import useLogin from "../../Hooks/useLogin"
+
 import "./Login.css"
 
 function Login(){
@@ -10,7 +11,7 @@ function Login(){
 
     const [showPassword,setShowPassword] = useState(false)
 
-    const {login,errorMessage="",emptyFields=[]} =useLogin()
+    const {login,emptyFields=[]} =useLogin()
 
 
     const handleEmail = event =>{
@@ -34,6 +35,7 @@ function Login(){
     }
     
     return <div className="login-container">
+       
         <img src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-login-img.png" alt="website login" className="website-login-image"/>
         <div className="login-form-container">
             <img src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-logo-img.png" alt="website logo" className="website-logo"/>
@@ -48,7 +50,6 @@ function Login(){
                 </div>
                 <button className="login-button" type="submit">Login</button>
                 <Link to="/signup" className="sign-up-link"><button className="sign-up-button">sign up</button></Link>
-                {errorMessage.length>0&&<p className="error-message">{errorMessage}</p>}
             </form>
         </div>
     </div>

@@ -9,6 +9,9 @@ import Products from './components/Products/Products';
 import ProductDetails from './components/ProductDetails/ProductDetails';
 import Cart from './components/Cart/Cart';
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function App() {
 
   const context = useUserContext()
@@ -24,6 +27,7 @@ function App() {
         <Route path="/products/:productId" element={user1?<ProductDetails />:<Navigate to="/" />} />
         <Route path="/cart" element={user1?<Cart />:<Navigate to="/"/>} />
       </Routes>
+      <ToastContainer autoClose={2000} style={{"paddingTop":"40px"}}/>
       
     </div>
   );

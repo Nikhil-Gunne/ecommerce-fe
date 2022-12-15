@@ -1,4 +1,5 @@
 import { useState,useEffect } from "react"
+import {toast} from "react-toastify"
 import { useParams } from "react-router-dom"
 import {AiFillStar,AiOutlineMinusSquare,AiOutlinePlusSquare} from "react-icons/ai"
 import Navbar from "../Navbar/Navbar"
@@ -6,6 +7,7 @@ import "./ProductDetails.css"
 import ProductCard from "../ProductCard/ProductCard"
 import useCartContext from "../../Hooks/useCartContext"
 import LoaderComponent from "../Loader/Loader"
+
 
 
 const ProductDetails = () =>{
@@ -21,6 +23,11 @@ const ProductDetails = () =>{
     // console.log(context)
 
     const user = JSON.parse(localStorage.getItem('user'))
+
+
+    const URL ="https://ecommerce-api-ws77.onrender.com"
+
+    //"http://localhost:4000"
     
     const {user_id} = user
     const {productId} = useParams()
@@ -34,7 +41,7 @@ const ProductDetails = () =>{
                     "Authorization": `Bearer ${user.token}`
                 }
             }
-            const response =  await fetch(`https://ecommerce-api-ws77.onrender.com/api/products/${productId}`,options)
+            const response =  await fetch(`${URL}/api/products/${productId}`,options)
             const jsonResponse =  await response.json()
             if (response.ok){
                 setProduct(jsonResponse)
@@ -72,7 +79,7 @@ const ProductDetails = () =>{
                 body:JSON.stringify({product_id:itemObj.product_id,quantity})
             }
 
-            const response =  await fetch(`https://ecommerce-api-ws77.onrender.com/api/user/change-quantity/${user_id}`,options)
+            const response =  await fetch(`${URL}/api/user/change-quantity/${user_id}`,options)
             // console.log(jsonResponse)
             if(response.ok){
                 dispatch({type:"ADD_ITEMS_TO_CART",payload:updatedCartList})
@@ -89,14 +96,14 @@ const ProductDetails = () =>{
                 body:JSON.stringify(itemObj)
             }
     
-            const response = await fetch("https://ecommerce-api-ws77.onrender.com/api/user/add-to-cart",options)
-            const jsonResponse = await response.json()
-            console.log(jsonResponse)
+            const response = await fetch(`${URL}/api/user/add-to-cart`,options)
+            // console.log(jsonResponse)
             setQuantity(1)
             if(response.ok){
                 dispatch({type:"ADD_TO_CART",payload:itemObj})
             }
         }
+        toast.success("added to cart")
         
     }
 
