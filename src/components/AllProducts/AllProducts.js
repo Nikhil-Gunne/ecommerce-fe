@@ -66,9 +66,15 @@ const AllProducts = () =>{
                 setLoading(false)
             }
         }
-        fetchProducts()
+        
+
+        let timerId = setTimeout(()=>fetchProducts(),1000)
+        return ()=>{
+        
+            clearTimeout(timerId)
+        }
     },[activeSortByOption,activeCategory,activeRating,searchInput,user.token])
-    // console.log(activeSortByOption)
+    
 
 
     const renderNoProductsView = () =><div className="no-products-found-container">
