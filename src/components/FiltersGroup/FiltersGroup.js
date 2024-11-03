@@ -67,10 +67,10 @@ const FiltersGroup = (props) =>{
       }
     }
     
-    const handleSubmit = event => {
-      event.preventDefault()
-      handleSearch(productSearch)
-  }
+  //   const handleSubmit = event => {
+  //     event.preventDefault()
+  //     handleSearch(productSearch)
+  // }
 
   const handleClearFilters = () =>{
     setProductSearch('')
@@ -81,9 +81,12 @@ const FiltersGroup = (props) =>{
   
     return <div className="filters-container">
       <div className="search-container">
-            <form onSubmit={handleSubmit}>
-                <input type="search"  value={productSearch} className="search-input" placeholder="search" onChange={(event) => setProductSearch(event.target.value)} />
-            </form>
+            <input type="search"  value={productSearch} className="search-input" placeholder="search" onChange={(event) => {
+              setProductSearch(event.target.value)
+              handleSearch(event.target.value)
+            }
+              } />
+            
             <AiOutlineSearch />
         </div>
         <h1 className="category-heading">Category</h1>
